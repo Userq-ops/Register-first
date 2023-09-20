@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Htu</title>
+    <style>
+        * {
+            margin-bottom: 10px 0;
+            padding-left: 2px;
+            margin: 5px;
+            background-color: rgb(255, 116, 116);
+        }   
+    </style>
+</head>
+<body>
+    <h1 style="padding-left: 10px;">Регистрация</h1>
+    <form style="align-items: center;" id="registration-form" onsubmit="return validateForm()" action="submit.php" method="post">
+        <fieldset style="background-color: aquamarine;">
+        <div style="background-color: blue;">
+        <label for="first-name">Имя: </label>
+        <input type="form" name="first-name" id="first-name" style="background-color: aliceblue;" required>   
+        </div>     
+        <div style="background-color: blue;">
+            <label for="last-name">Фамилия: </label>
+            <input type="form" name="last-name" id="first-name" style="background-color: aliceblue;" required>
+        </div>
+        <div style="background-color: blue;">
+            <label for="email">Электронная почта: </label>
+            <input type="form" name="email" id="email" style="background-color: aliceblue;" required>
+        </div>
+        <div style="background-color: blue;">
+            <label for="password" >Пароль: </label>
+            <input type="password" name="password" id="password" style="background-color: aliceblue;" required>
+        </div>
+        <div style="background-color: blue;">
+            <label for="confirmPassword">Подтверждение пароля: </label>
+            <input type="password" name="confirmPassword" id="confirmPassword" style="background-color: aliceblue;" required>
+        </div>
+        <div style="background-color: blue;">
+            <label for="gender-radio">Пол: </label>
+            <input type="radio" name="gender-radio" id="gender-radio"  style="font-" >Мужской
+            <input type="radio" name="gender-radio" id="gender-radio" required>Женский
+        </div>
+        <div style="background-color: blue;">
+            <label for="date">Дата рождения: </label>
+            <input type="date" name="date" style="background-color: aliceblue;">
+        </div>
+        <div style="background-color: blue;">
+            <input type="submit" value="Зарегистрироваться" style="background-color: bisque;">
+        </div>
+        </fieldset>
+    </form>
+    <script>
+
+        function validateForm() {
+        var password = document.getElementById("password").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        var email = document.getElementById("email").value;
+
+        if (password !== confirmPassword) {
+            alert("Пароли не совпадают!");
+            return false;
+        }
+
+        var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+        if (!email.match(emailPattern)) {
+            alert("Пожалуйста, введите корректный email-адрес.");
+            return false;
+        }
+
+         return true;
+        }
+    </script>
+</body>
+</html>
